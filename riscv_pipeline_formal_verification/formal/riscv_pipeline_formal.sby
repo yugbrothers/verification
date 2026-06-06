@@ -1,0 +1,17 @@
+[options]
+mode prove
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal riscv_pipeline.sv
+read -formal riscv_pipeline_assertions.sv
+read -formal riscv_pipeline_formal.sv
+
+prep -top riscv_pipeline_formal
+
+[files]
+../rtl/riscv_pipeline.sv
+../assertions/riscv_pipeline_assertions.sv
+riscv_pipeline_formal.sv

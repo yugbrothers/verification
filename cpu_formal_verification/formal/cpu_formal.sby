@@ -1,0 +1,17 @@
+[options]
+mode prove
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal cpu.sv
+read -formal cpu_assertions.sv
+read -formal cpu_formal.sv
+
+prep -top cpu_formal
+
+[files]
+../rtl/cpu.sv
+../assertions/cpu_assertions.sv
+cpu_formal.sv

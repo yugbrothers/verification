@@ -1,0 +1,17 @@
+[options]
+mode prove
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal riscv_alu.sv
+read -formal riscv_alu_assertions.sv
+read -formal riscv_alu_formal.sv
+
+prep -top riscv_alu_formal
+
+[files]
+../rtl/riscv_alu.sv
+../assertions/riscv_alu_assertions.sv
+riscv_alu_formal.sv

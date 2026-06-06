@@ -1,0 +1,17 @@
+[options]
+mode prove
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal cache_controller.sv
+read -formal cache_controller_assertions.sv
+read -formal cache_controller_formal.sv
+
+prep -top cache_controller_formal
+
+[files]
+../rtl/cache_controller.sv
+../assertions/cache_controller_assertions.sv
+cache_controller_formal.sv

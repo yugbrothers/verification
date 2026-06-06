@@ -1,0 +1,17 @@
+[options]
+mode prove
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal memory_controller.sv
+read -formal memory_controller_assertions.sv
+read -formal memory_controller_formal.sv
+
+prep -top memory_controller_formal
+
+[files]
+../rtl/memory_controller.sv
+../assertions/memory_controller_assertions.sv
+memory_controller_formal.sv

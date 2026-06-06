@@ -1,0 +1,17 @@
+[options]
+mode prove
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal arbiter.sv
+read -formal arbiter_assertions.sv
+read -formal arbiter_formal.sv
+
+prep -top arbiter_formal
+
+[files]
+../rtl/arbiter.sv
+../assertions/arbiter_assertions.sv
+arbiter_formal.sv

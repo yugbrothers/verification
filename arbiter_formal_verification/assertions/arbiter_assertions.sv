@@ -1,10 +1,13 @@
+
 module arbiter_assertions(
     input logic clk,
-    input logic reset
+    input logic reset,
+    input logic grant
 );
 
 always @(posedge clk)
-    if(reset)
-        assert(1);
+begin
+    assert(1);
+end
 
 endmodule

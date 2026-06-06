@@ -1,0 +1,236 @@
+{
+  "$schema": "https://raw.githubusercontent.com/YosysHQ/yosys/main/misc/jny.schema.json",
+  "generator": "Yosys 0.66 (git sha1 7f8fdfd8d7bc08c749a2a969388d3425d4f369d5, clang++ 17.0.0 -fPIC -O3)",
+  "version": "0.0.1",
+  "invocation": "write_jny -no-connections ../model/design.json ",
+  "features": ["attributes", "properties"],
+  "modules": [
+      {
+        "name": "uart",
+        "cell_sorts": [
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$6",
+                  "attributes": {
+                    "src": "uart.sv:12.14-12.22|uart.sv:12.10-13.22"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$9",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "uart.sv:10.9-10.14|uart.sv:10.5-13.22"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$11",
+                  "attributes": {
+                    "always_ff": "00000000000000000000000000000001",
+                    "src": "uart.sv:9.1-14.4"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "hdlname": "uart",
+            "src": "uart.sv:2.1-16.10"
+        }
+      },
+      {
+        "name": "uart_assertions",
+        "cell_sorts": [
+          {
+            "type": "$check",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "ARGS",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "TRG",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "_witness_.check_assert_uart_assertions_sv_9_2",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_uart_assertions_sv_9_2",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "uart_assertions.sv:9.5-9.14"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111111",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "hdlname": "uart_assertions",
+            "src": "uart_assertions.sv:1.1-12.10"
+        }
+      },
+      {
+        "name": "uart_formal",
+        "cell_sorts": [
+          {
+            "type": "uart_assertions",
+            "ports": [
+                {
+                  "name": "clk",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "reset",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "tx_busy",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "tx_start",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "monitor_inst",
+                  "attributes": {
+                    "module_not_derived": "00000000000000000000000000000001",
+                    "src": "uart_formal.sv:16.17-21.2"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "uart",
+            "ports": [
+                {
+                  "name": "clk",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "reset",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "tx_busy",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "tx_start",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "dut",
+                  "attributes": {
+                    "module_not_derived": "00000000000000000000000000000001",
+                    "src": "uart_formal.sv:9.6-14.2"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "hdlname": "uart_formal",
+            "top": "00000000000000000000000000000001",
+            "src": "uart_formal.sv:2.1-23.10"
+        }
+      }
+  ]
+}

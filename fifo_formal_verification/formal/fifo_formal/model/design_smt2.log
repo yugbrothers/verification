@@ -1,0 +1,141 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.66 (git sha1 7f8fdfd8d7bc08c749a2a969388d3425d4f369d5, clang++ 17.0.0 -fPIC -O3)
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `fifo_formal'. Setting top module to fifo_formal.
+
+2.1. Analyzing design hierarchy..
+Top module:  \fifo_formal
+Used module:     \fifo
+Used module:     \fifo_assertions
+
+2.2. Analyzing design hierarchy..
+Top module:  \fifo_formal
+Used module:     \fifo
+Used module:     \fifo_assertions
+Removed 0 unused modules.
+Module fifo_assertions directly or indirectly contains formal properties -> setting "keep" attribute.
+Module fifo_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== fifo ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       40 wires
+      170 wire bits
+       15 public wires
+       49 public wire bits
+        8 ports
+       22 port bits
+       36 cells
+        3   $add
+        4   $anyinit
+        4   $anyseq
+        1   $assume
+        1   $eq
+        2   $logic_and
+        3   $logic_not
+        1   $mem_v2
+       15   $mux
+        1   $not
+        1   $sub
+
+=== fifo_assertions ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        9 wires
+        9 wire bits
+        4 public wires
+        4 public wire bits
+        4 ports
+        4 port bits
+        7 cells
+        1   $assert
+        1   $assume
+        2   $ff
+        1   $logic_not
+        1   $mux
+        1   $not
+
+=== fifo_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        9 wires
+       23 wire bits
+        8 public wires
+       22 public wire bits
+        7 cells
+        5   $anyseq
+        1   $assume
+        1   $not
+        2 submodules
+        1   fifo
+        1   fifo_assertions
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+       50 fifo_formal
+       36 fifo
+        7 fifo_assertions
+
+        +----------Count including submodules.
+        | 
+       58 wires
+      202 wire bits
+       27 public wires
+       75 public wire bits
+       12 ports
+       26 port bits
+        - memories
+        - memory bits
+        - processes
+       50 cells
+        3   $add
+        4   $anyinit
+        9   $anyseq
+        1   $assert
+        3   $assume
+        1   $eq
+        2   $ff
+        2   $logic_and
+        4   $logic_not
+        1   $mem_v2
+       16   $mux
+        3   $not
+        1   $sub
+        2 submodules
+        1   fifo
+        1   fifo_assertions
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module fifo_assertions.
+Creating SMT-LIBv2 representation of module fifo.
+Creating SMT-LIBv2 representation of module fifo_formal.
+
+End of script. Logfile hash: 277b4bfa6d, time: 0.00s, user: 0.01s, system: 0.00s, MEM: 11.53 MB peak
+Yosys 0.66 (git sha1 7f8fdfd8d7bc08c749a2a969388d3425d4f369d5, clang++ 17.0.0 -fPIC -O3)
+Time spent: 60% 2x write_smt2 (0 sec), 18% 2x read_rtlil (0 sec), ...

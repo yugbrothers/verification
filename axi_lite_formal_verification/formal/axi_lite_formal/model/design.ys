@@ -1,0 +1,11 @@
+# running in axi_lite_formal/src/
+read -formal axi_lite.sv
+read -formal axi_lite_assertions.sv
+read -formal axi_lite_formal.sv
+
+prep -top axi_lite_formal
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

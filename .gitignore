@@ -1,0 +1,15 @@
+.DS_Store
+
+# SymbiYosys
+**/formal/*/
+**/PASS
+**/FAIL
+*.vcd
+*.yw
+*.smtc
+*.sqlite
+*.xml
+*.json
+*.il
+*.smt2
+*.log
